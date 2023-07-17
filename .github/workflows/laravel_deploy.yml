@@ -1,0 +1,27 @@
+name: Deploy
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+# Authenticate to the the server via ssh and run deployment script
+
+jobs:
+  deploy-server-1:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Deploy to Server
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          port: ${{ secrets.PORT }}
+          key: ${{ secrets.SSHKEY }}
+          script: "cd /var/web/html_new/hospitalMS
+          && sudo chown -Rf nginx:happyhaat /var/web/html_new/hospitalMS
+          && sudo chmod -Rf 770 /var/web/html_new/hospitalMS
+          && sudo chmod -Rf g+s /var/web/html_new/hospitalMS
+          && sudo ./.scripts/laravel_script.sh"
