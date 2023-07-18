@@ -21,7 +21,7 @@ jobs:
           port: ${{ secrets.PORT }}
           key: ${{ secrets.SSHKEY }}
           script: "cd /var/web/html_new/hospitalMS
-          && sudo chown -Rf nginx:happyhaat /var/web/html_new/hospitalMS
+          && sudo chown -Rf nginx:nginx /var/web/html_new/hospitalMS
           && sudo chmod -Rf 770 /var/web/html_new/hospitalMS
           && sudo chmod -Rf g+s /var/web/html_new/hospitalMS
           && sudo ./.scripts/laravel_script.sh"

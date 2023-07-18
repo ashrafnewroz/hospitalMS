@@ -9,7 +9,7 @@
 echo dev
 pushd /var/web/html_new/hospitalMS
 sudo git checkout .
-sudo git pull origin master
+sudo git pull myfork main
 sudo /usr/local/bin/composer install 
 sudo chmod -R 777 storage
 sudo chmod -R 777 bootstrap/cache
