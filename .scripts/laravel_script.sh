@@ -15,7 +15,7 @@ sudo chmod -R 777 storage
 sudo chmod -R 777 bootstrap/cache
 popd
 #sudo chown -Rf nginx.nginx /var/web/html_new/hospitalMS
-sudo chown -R nginx:webtest /var/web/html_new/hospitalMS
+sudo chown -Rf nginx:webtest /var/web/html_new/hospitalMS
 sudo chmod -Rf 770 /var/web/html_new/hospitalMS
 sudo chmod -Rf g+s /var/web/html_new/hospitalMS
 sudo systemctl reload php-fpm.service
